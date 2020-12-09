@@ -24,8 +24,8 @@ def create_app(test_config=None): # What does test_config mean?
         app.config.from_mapping(test_config)
     
 
-    # ensure the instance folder exists
-    # makes the instance folder/directory? But what about line 12?
+    # # ensure the instance folder exists
+    # # makes the instance folder/directory
     try:
         os.makedirs(app.instance_path)
     except OSError:
@@ -40,10 +40,7 @@ def create_app(test_config=None): # What does test_config mean?
     from . import db
     db.init_app(app)
 
-
     from .import auth
     app.register_blueprint(auth.bp)
     
     return app
-
-
